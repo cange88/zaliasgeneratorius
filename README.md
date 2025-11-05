@@ -1,0 +1,1 @@
+Zaliasgeneratorius1
