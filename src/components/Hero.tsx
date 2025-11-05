@@ -30,7 +30,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             Žalias Generatorius
           </h1>
 
-          <p className="text-2xl md:text-3xl text-gray-700 mb-4 font-light">
+          <p className="text-2xl md:text-3xl text-green-600 mb-4 font-light">
             Tvarus, tylus ir galingas energijos šaltinis
           </p>
 
