@@ -20,10 +20,11 @@ export default function Hero({ onNavigate }: HeroProps) {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="text-center">
           <div className="flex justify-center mb-8">
-            <div className="relative">
-              <Battery className="w-20 h-20 text-green-600" strokeWidth={1.5} />
-              <Leaf className="w-8 h-8 text-green-500 absolute -bottom-1 -right-1" />
-            </div>
+            <img
+              src="/9546F775-108C-4B48-90B5-1BB5BD2EA1F2.png"
+              alt="Žalias Generatorius"
+              className="w-full max-w-2xl h-auto rounded-lg shadow-lg"
+            />
           </div>
 
           <p className="text-2xl md:text-3xl text-gray-900 mb-4 font-light">
