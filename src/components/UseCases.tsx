@@ -15,16 +15,16 @@ export default function UseCases() {
       image: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     },
     {
-      icon: Home,
-      title: 'Nesant elektros įvadui / Avarinis',
-      description: 'Nepriklausomas energijos šaltinis arba avarinė atsarginė galia.',
-      image: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-    },
-    {
       icon: Plug,
       title: 'Elektros įvado galios didinimas',
       description: 'Papildomas tinklo galingumas dideliems projektams ar renginiams.',
       image: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+    },
+    {
+      icon: Home,
+      title: 'Nesant elektros įvadui / Avarinis',
+      description: 'Nepriklausomas energijos šaltinis arba avarinė atsarginė galia.',
+      image: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     },
   ];
 
