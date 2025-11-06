@@ -11,8 +11,8 @@ export default function Navigation({ currentSection, onNavigate }: NavigationPro
 
   const navItems = [
     { id: 'home', label: 'Pradžia' },
-    { id: 'features', label: 'Savybės' },
     { id: 'use-cases', label: 'Naudojimas' },
+    { id: 'features', label: 'Savybės' },
     { id: 'pricing', label: 'Kaina' },
     { id: 'about', label: 'Apie mus' },
     { id: 'contact', label: 'Kontaktai' },
