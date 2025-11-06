@@ -19,7 +19,7 @@ export default function Hero({ onNavigate }: HeroProps) {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="text-left">
+          <div className="text-left md:order-1 order-2">
             <p className="text-2xl md:text-3xl text-gray-900 mb-4 font-light">
               Tvarus, tylus ir galingas energijos šaltinis
             </p>
@@ -49,7 +49,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             </div>
           </div>
 
-          <div className="flex justify-center md:justify-end">
+          <div className="flex justify-center md:justify-end md:order-2 order-1">
             <img
               src="/9546F775-108C-4B48-90B5-1BB5BD2EA1F2.png"
               alt="Žalias Generatorius"
