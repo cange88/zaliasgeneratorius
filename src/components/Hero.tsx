@@ -29,7 +29,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             </p>
 
             <h1 className="text-3xl md:text-5xl font-semibold text-gray-900 dark:text-gray-50 leading-tight">
-              Tylus akumuliatorinis energijos šaltinis („generatorius“ nuomai) renginiams ir statyboms
+              Tylus akumuliatorinis energijos šaltinis „generatorius“ nuomai
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-900 dark:text-gray-100 mt-4 mb-8 font-medium">
