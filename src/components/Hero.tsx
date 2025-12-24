@@ -51,7 +51,7 @@ export default function Hero({ onNavigate }: HeroProps) {
 
           <div className="flex justify-center md:justify-end md:order-2 order-1">
             <img
-              src="/9546F775-108C-4B48-90B5-1BB5BD2EA1F2.png"
+              src={`${import.meta.env.BASE_URL}9546F775-108C-4B48-90B5-1BB5BD2EA1F2.png`}
               alt="Žalias Generatorius"
               className="w-full max-w-2xl h-auto"
             />
