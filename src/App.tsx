@@ -11,7 +11,7 @@ function App() {
   const [currentSection, setCurrentSection] = useState('home');
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
       <Navigation currentSection={currentSection} onNavigate={setCurrentSection} />
 
       <div id="home" className="section">
@@ -38,7 +38,7 @@ function App() {
         <Contact />
       </div>
 
-      <footer className="bg-gray-900 text-white py-6">
+      <footer className="bg-gray-900 dark:bg-gray-950 text-white py-6 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm">
             © Žalias Generatorius – info@zaliasgeneratorius.lt
