@@ -5,7 +5,7 @@ export default function Pricing() {
     '60 kWh įkrauta baterija – akumuliatorinis energijos šaltinis',
     'Iki 15 kW išėjimo galia – generatoriaus alternatyva',
     'Nemokamas pristatymas Šiaulių apskrityje',
-    'Techninis palaikymas ir prijungimo konsultacija',
+    'Techninis palaikymas ir prijungimas vietoje',
   ];
 
   const pricingOptions = [
@@ -31,7 +31,7 @@ export default function Pricing() {
             id="pricing-heading"
             className="text-3xl md:text-4xl font-semibold text-gray-900 dark:text-gray-50"
           >
-            Kaina – akumuliatorinio energijos šaltinio „generatorius“ nuomai
+            Nuomos kaina
           </h2>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
             Aiški dienos kaina be paslėptų mokesčių. Tinka renginiams, statyboms ir
