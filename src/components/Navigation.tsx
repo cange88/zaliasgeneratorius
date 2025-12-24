@@ -33,7 +33,7 @@ export default function Navigation({ currentSection, onNavigate }: NavigationPro
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-3">
             <img
-              src="/icon.png"
+              src={`${import.meta.env.BASE_URL}icon.png`}
               alt="Logo"
               className="w-8 h-8"
             />
