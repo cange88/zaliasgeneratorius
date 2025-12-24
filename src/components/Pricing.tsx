@@ -2,8 +2,8 @@ import { Check } from 'lucide-react';
 
 export default function Pricing() {
   const features = [
-    '60 kWh įkrauta baterija (akumuliatorinis energijos šaltinis)',
-    'Iki 15 kW išėjimo galia (generatoriaus alternatyva)',
+    '60 kWh įkrauta baterija – akumuliatorinis energijos šaltinis',
+    'Iki 15 kW išėjimo galia – generatoriaus alternatyva',
     'Nemokamas pristatymas Šiaulių apskrityje',
     'Techninis palaikymas ir prijungimo konsultacija',
   ];
@@ -31,11 +31,11 @@ export default function Pricing() {
             id="pricing-heading"
             className="text-3xl md:text-4xl font-semibold text-gray-900 dark:text-gray-50"
           >
-            Kaina – akumuliatorinio energijos šaltinio („generatorius“ nuomai) nuoma
+            Kaina – akumuliatorinio energijos šaltinio „generatorius“ nuomai
           </h2>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-            Aiški dienos kaina, be paslėptų mokesčių. Tinka renginiams, statyboms ir
-            laikinam elektros energijos tiekimui ten, kur reikia tylaus sprendimo be dūmų.
+            Aiški dienos kaina be paslėptų mokesčių. Tinka renginiams, statyboms ir
+            laikinam elektros energijos tiekimui, kai reikalingas tylus ir patikimas sprendimas.
           </p>
         </header>
 
@@ -88,15 +88,15 @@ export default function Pricing() {
             <button
               onClick={scrollToContact}
               className="w-full bg-white/80 dark:bg-gray-800 text-green-800 dark:text-green-300 border border-green-200 dark:border-gray-700 py-3 rounded-lg font-semibold hover:bg-white dark:hover:bg-gray-700 transition-all"
-              aria-label="Gauti pasiūlymą"
+              aria-label="Gauti individualų pasiūlymą"
             >
               Gauti pasiūlymą
             </button>
           </div>
 
           <p className="mt-4 text-sm text-gray-600 dark:text-gray-300">
-            Kaina gali priklausyti nuo pristatymo vietos už Šiaulių apskrities ribų ir reikalingos galios bei
-            naudojimo trukmės. Susisiekite – pateiksime tikslų pasiūlymą.
+            Galutinė kaina gali priklausyti nuo pristatymo vietos už Šiaulių apskrities ribų,
+            reikalingos galios ir naudojimo trukmės. Susisiekite ir pateiksime tikslų pasiūlymą.
           </p>
         </div>
       </div>
