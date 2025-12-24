@@ -39,8 +39,7 @@ export default function Navigation({ currentSection, onNavigate }: NavigationPro
             />
             <button
               onClick={() => scrollToSection('home')}
-              className="text-xl font-bold text-green-600 hover:text-green-700 transition-colors"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              className="text-xl font-semibold text-emerald-600 hover:text-emerald-800 transition-colors"
             >
               Žalias Generatorius
             </button>
@@ -53,8 +52,8 @@ export default function Navigation({ currentSection, onNavigate }: NavigationPro
                 onClick={() => scrollToSection(item.id)}
                 className={`text-sm font-medium transition-colors ${
                   currentSection === item.id
-                    ? 'text-green-600'
-                    : 'text-gray-700 hover:text-green-600'
+                    ? 'text-emerald-600'
+                    : 'text-gray-700 hover:text-emerald-600'
                 }`}
               >
                 {item.label}
@@ -65,7 +64,7 @@ export default function Navigation({ currentSection, onNavigate }: NavigationPro
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-green-600"
+              className="text-gray-700 hover:text-emerald-600"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -82,8 +81,8 @@ export default function Navigation({ currentSection, onNavigate }: NavigationPro
                 onClick={() => scrollToSection(item.id)}
                 className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium ${
                   currentSection === item.id
-                    ? 'bg-green-50 text-green-600'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-green-600'
+                    ? 'bg-emerald-50 text-emerald-600'
+                    : 'text-gray-700 hover:bg-gray-50 hover:text-emerald-600'
                 }`}
               >
                 {item.label}
