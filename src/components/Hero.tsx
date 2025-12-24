@@ -29,7 +29,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             </p>
 
             <h1 className="text-3xl md:text-5xl font-semibold text-gray-900 dark:text-gray-50 leading-tight">
-              Tylus ekologiškas generatorius renginiams ir statyboms
+              Tylus akumuliatorinis energijos šaltinis („generatorius“ nuomai) renginiams ir statyboms
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-900 dark:text-gray-100 mt-4 mb-8 font-medium">
@@ -68,7 +68,7 @@ export default function Hero({ onNavigate }: HeroProps) {
           <div className="flex justify-center md:justify-end md:order-2 order-1">
             <img
               src={`${import.meta.env.BASE_URL}9546F775-108C-4B48-90B5-1BB5BD2EA1F2.png`}
-              alt="Tylus ekologiškas generatorius renginiams ir statyboms"
+              alt="Tylus akumuliatorinis energijos šaltinis „generatorius“ nuomai"
               className="w-full max-w-2xl h-auto"
               loading="eager"
               fetchPriority="high"
