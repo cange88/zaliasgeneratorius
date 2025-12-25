@@ -23,20 +23,16 @@ export default function Hero({ onNavigate }: HeroProps) {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="text-left md:order-1 order-2">
-            <p className="text-2xl md:text-3xl text-green-700 dark:text-green-400 mb-3 font-light">
-              Tvarus, tylus ir galingas energijos šaltinis
-            </p>
-
-            <h1 className="text-3xl md:text-5xl font-semibold text-gray-900 dark:text-gray-50 leading-tight">
-              Tylus akumuliatorinis energijos šaltinis „generatorius“ nuomai
+          <div className="text-left md:order-1 order-2 max-w-xl">
+            <h1 className="text-3xl md:text-5xl font-semibold text-gray-900 dark:text-gray-50 leading-tight mb-6">
+              Tylus akumuliatorinis energijos šaltinis nuomai
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-900 dark:text-gray-100 mt-4 mb-8 font-medium">
+            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-400 mb-8 font-normal">
               Iš atnaujintų elektromobilių baterijų — patikimumas ir tvarumas
             </p>
 
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+            <p className="text-base md:text-lg text-gray-600 dark:text-gray-400/90 mb-10 leading-relaxed">
               Nuomojamas energijos šaltinis — idealus sprendimas renginiams ir statyboms, ypač ten, kur elektros įvado nėra arba jis yra nepakankamas.
             </p>
 
@@ -48,7 +44,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={() => scrollToSection('pricing')}
-                className="px-8 py-4 bg-green-600 dark:bg-green-500 text-white rounded-lg font-semibold hover:bg-green-700 dark:hover:bg-green-600 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                className="px-8 py-4 bg-green-600 dark:bg-green-500 text-white rounded-lg font-semibold hover:bg-green-700 dark:hover:bg-green-600 transition-all transform hover:scale-102 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
                 aria-label="Susisiekti dėl nuomos"
               >
                 Susisiekti
@@ -57,7 +53,7 @@ export default function Hero({ onNavigate }: HeroProps) {
 
               <button
                 onClick={() => scrollToSection('features')}
-                className="px-8 py-4 bg-white dark:bg-gray-800 text-green-700 dark:text-green-400 border-2 border-green-700 dark:border-green-500 rounded-lg font-semibold hover:bg-green-50 dark:hover:bg-gray-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="px-8 py-4 bg-white dark:bg-gray-800 text-green-700 dark:text-green-400 border-2 border-green-700 dark:border-green-500 rounded-lg font-semibold hover:bg-green-50 dark:hover:bg-gray-700 transition-all transform hover:scale-102 shadow-lg hover:shadow-xl"
                 aria-label="Sužinoti daugiau apie savybes"
               >
                 Sužinoti daugiau
