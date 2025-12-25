@@ -28,17 +28,19 @@ export default function Hero({ onNavigate }: HeroProps) {
               Tylus akumuliatorinis energijos šaltinis nuomai
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-400 mb-8 font-normal">
+            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8 font-normal">
               Iš atnaujintų elektromobilių baterijų — patikimumas ir tvarumas
             </p>
 
-            <p className="text-base md:text-lg text-gray-600 dark:text-gray-400/90 mb-10 leading-relaxed">
-              Nuomojamas energijos šaltinis — idealus sprendimas renginiams ir statyboms, ypač ten, kur elektros įvado nėra arba jis yra nepakankamas.
+            <p className="text-base md:text-lg text-gray-600 dark:text-gray-300/90 mb-10 leading-relaxed">
+              Nuomojamas energijos šaltinis — idealus sprendimas renginiams ir statyboms, ypač ten, kur elektros įvado
+              nėra arba jis yra nepakankamas.
             </p>
 
             <p className="sr-only">
-              Ekologiškas generatorius nuomai Šiauliuose ir visoje Lietuvoje. Tylus energijos šaltinis be dyzelino,
-              tinkamas renginiams, statyboms ir laikinai elektros tiekimo užtikrinimui.
+              Ekologiškas energijos šaltinis nuomai Šiauliuose ir visoje Lietuvoje. Tylus sprendimas be dyzelino,
+              tinkamas renginiams, statyboms ir laikinam elektros tiekimo užtikrinimui. Daugelis ieško „generatoriaus“
+              nuomai, tačiau tai yra akumuliatorinis energijos šaltinis su didele talpa.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -64,7 +66,7 @@ export default function Hero({ onNavigate }: HeroProps) {
           <div className="flex justify-center md:justify-end md:order-2 order-1">
             <img
               src={`${import.meta.env.BASE_URL}9546F775-108C-4B48-90B5-1BB5BD2EA1F2.png`}
-              alt="Tylus akumuliatorinis energijos šaltinis „generatorius“ nuomai"
+              alt="Tylus akumuliatorinis energijos šaltinis nuomai renginiams ir statyboms"
               className="w-full max-w-2xl h-auto"
               loading="eager"
               fetchPriority="high"
