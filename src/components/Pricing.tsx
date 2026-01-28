@@ -52,6 +52,7 @@ export default function Pricing() {
                   {option.price}
                 </span>
                 <span className="text-gray-600 dark:text-gray-300">€/diena</span>
+                <span className="text-sm text-gray-500 dark:text-gray-400 ml-1">+PVM</span>
               </div>
 
               <p className="mt-3 text-sm text-gray-600 dark:text-gray-300">{option.note}</p>
