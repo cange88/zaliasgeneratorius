@@ -38,11 +38,30 @@ function App() {
         <Contact />
       </div>
 
-      <footer className="bg-gray-900 dark:bg-gray-950 text-white py-6 transition-colors">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm">
-            © Žalias Generatorius – info@zaliasgeneratorius.lt
-          </p>
+      <footer className="bg-gray-900 dark:bg-gray-950 text-white py-8 transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-lg font-semibold mb-4">MB „Žalias generatorius"</p>
+            <div className="space-y-1 text-sm text-gray-300">
+              <p>Įmonės kodas: 307572512</p>
+              <p>PVM mokėtojo kodas: LT100019600913</p>
+              <p>Adresas: Užmiesčio g. 21-16, Šiauliai, Lietuva</p>
+              <p>
+                El. paštas:{' '}
+                <a
+                  href="mailto:info@zaliasgeneratorius.lt"
+                  className="text-green-400 hover:text-green-300 transition-colors"
+                >
+                  info@zaliasgeneratorius.lt
+                </a>
+              </p>
+            </div>
+            <div className="mt-6 pt-6 border-t border-gray-800">
+              <p className="text-xs text-gray-400">
+                © {new Date().getFullYear()} Žalias Generatorius. Visos teisės saugomos.
+              </p>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
