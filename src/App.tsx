@@ -45,16 +45,6 @@ function App() {
             <div className="space-y-1 text-sm text-gray-300">
               <p>Įmonės kodas: 307572512</p>
               <p>PVM mokėtojo kodas: LT100019600913</p>
-              <p>Adresas: Užmiesčio g. 21-16, Šiauliai, Lietuva</p>
-              <p>
-                El. paštas:{' '}
-                <a
-                  href="mailto:info@zaliasgeneratorius.lt"
-                  className="text-green-400 hover:text-green-300 transition-colors"
-                >
-                  info@zaliasgeneratorius.lt
-                </a>
-              </p>
             </div>
             <div className="mt-6 pt-6 border-t border-gray-800">
               <p className="text-xs text-gray-400">
