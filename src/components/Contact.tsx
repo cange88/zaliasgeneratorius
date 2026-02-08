@@ -20,6 +20,10 @@ export default function Contact() {
                   <a
                     href="mailto:info@zaliasgeneratorius.lt"
                     className="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 font-medium"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.gtag_report_conversion('mailto:info@zaliasgeneratorius.lt');
+                    }}
                   >
                     info@zaliasgeneratorius.lt
                   </a>
@@ -37,6 +41,10 @@ export default function Contact() {
                   <a
                     href="tel:+37063796969"
                     className="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 font-medium"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.gtag_report_conversion('tel:+37063796969');
+                    }}
                   >
                     +370 637 96969
                   </a>
