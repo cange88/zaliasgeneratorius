@@ -1,6 +1,9 @@
 import { Mail, Phone } from 'lucide-react';
 
 export default function Contact() {
+  const emailUrl = 'mailto:info@zaliasgeneratorius.lt';
+  const phoneUrl = 'tel:+37063796969';
+
   return (
     <div className="py-16 bg-white dark:bg-gray-900 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -10,19 +13,23 @@ export default function Contact() {
 
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 mb-8">
+            {/* Email */}
             <div className="bg-gradient-to-br from-green-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 shadow-lg border border-green-100 dark:border-gray-700">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-green-600 dark:bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-1">El. paštas</h3>
+                  <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-1">
+                    El. paštas
+                  </h3>
+
                   <a
-                    href="mailto:info@zaliasgeneratorius.lt"
+                    href={emailUrl}
                     className="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 font-medium"
                     onClick={(e) => {
                       e.preventDefault();
-                      window.gtag_report_conversion('mailto:info@zaliasgeneratorius.lt');
+                      window.gtag_report_conversion(emailUrl);
                     }}
                   >
                     info@zaliasgeneratorius.lt
@@ -31,19 +38,23 @@ export default function Contact() {
               </div>
             </div>
 
+            {/* Phone */}
             <div className="bg-gradient-to-br from-green-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 shadow-lg border border-green-100 dark:border-gray-700">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-green-600 dark:bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Phone className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-1">Telefonas</h3>
+                  <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-1">
+                    Telefonas
+                  </h3>
+
                   <a
-                    href="tel:+37063796969"
+                    href={phoneUrl}
                     className="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 font-medium"
                     onClick={(e) => {
                       e.preventDefault();
-                      window.gtag_report_conversion('tel:+37063796969');
+                      window.gtag_report_conversion(phoneUrl);
                     }}
                   >
                     +370 637 96969
