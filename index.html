@@ -12,13 +12,33 @@
       gtag('config', 'AW-17938724932');
     </script>
 
+    <!-- Google Ads Conversion Helper (fires ONLY when called) -->
+    <script>
+      // Call this function ONLY on button click
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof url !== 'undefined') {
+            window.location = url;
+          }
+        };
+
+        // IMPORTANT: replace send_to with your conversion label from Google Ads snippet
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17938724932/90NQCkn44vQbEMTw7OIC',
+          'event_callback': callback
+        });
+
+        return false;
+      }
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Font: Inter (Modern, Tech, Clean) -->
+    <!-- Google Font: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -40,10 +60,7 @@
     />
 
     <!-- Open Graph -->
-    <meta
-      property="og:title"
-      content="Žalias generatorius – laikina elektra be generatorių"
-    />
+    <meta property="og:title" content="Žalias generatorius – laikina elektra be generatorių" />
     <meta
       property="og:description"
       content="Mobilūs energijos kaupimo sprendimai laikinam elektros tiekimui. Įvado galios padidinimas, darbas be generatoriaus, suderinama su saulės elektrinėmis."
@@ -129,4 +146,3 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-
