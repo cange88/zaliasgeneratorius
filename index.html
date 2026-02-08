@@ -12,22 +12,24 @@
       gtag('config', 'AW-17938724932');
     </script>
 
-    <!-- Google Ads Conversion Helper (fires ONLY when called) -->
+    <!-- Google Ads Conversion Helper (fires ONLY when called from button/link click) -->
     <script>
-      // Call this function ONLY on button click
+      // Usage from React onClick:
+      // e.preventDefault();
+      // window.gtag_report_conversion('tel:+3706XXXXXXX');
+      // or window.gtag_report_conversion('mailto:info@...');
       function gtag_report_conversion(url) {
-        var callback = function () {
-          if (typeof url !== 'undefined') {
-            window.location = url;
-          }
-        };
+        try {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17938724932/90NQCkn44vQbEMTw7OIC'
+          });
+        } catch (e) {
+          // If gtag is blocked (adblock), still allow tel/mail to open
+        }
 
-        // IMPORTANT: replace send_to with your conversion label from Google Ads snippet
-        gtag('event', 'conversion', {
-          'send_to': 'AW-17938724932/90NQCkn44vQbEMTw7OIC',
-          'event_callback': callback
-        });
-
+        if (typeof url !== 'undefined') {
+          window.location.href = url;
+        }
         return false;
       }
     </script>
@@ -38,7 +40,7 @@
     <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Font: Inter -->
+    <!-- Google Font: Inter (Modern, Tech, Clean) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -60,14 +62,20 @@
     />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Žalias generatorius – laikina elektra be generatorių" />
+    <meta
+      property="og:title"
+      content="Žalias generatorius – laikina elektra be generatorių"
+    />
     <meta
       property="og:description"
       content="Mobilūs energijos kaupimo sprendimai laikinam elektros tiekimui. Įvado galios padidinimas, darbas be generatoriaus, suderinama su saulės elektrinėmis."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://zaliasgeneratorius.lt" />
-    <meta property="og:image" content="https://zaliasgeneratorius.lt/9546F775-108C-4B48-90B5-1BB5BD2EA1F2.png" />
+    <meta
+      property="og:image"
+      content="https://zaliasgeneratorius.lt/9546F775-108C-4B48-90B5-1BB5BD2EA1F2.png"
+    />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://zaliasgeneratorius.lt" />
