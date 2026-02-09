@@ -30,23 +30,30 @@
 
     <!-- GOOGLE ADS CONVERSION HELPER (SAFE) -->
     <script>
-      function gtag_report_conversion(url) {
-        var callback = function () {
-          if (url) window.location.href = url;
-        };
+  function gtag_report_conversion(url) {
+    var navigated = false;
 
-        try {
-          gtag('event', 'conversion', {
-            send_to: 'AW-17938724932/90NQCkn44vQbEMTw7OIC',
-            event_callback: callback
-          });
-          setTimeout(callback, 800); // fallback
-        } catch (e) {
-          callback();
-        }
-        return false;
-      }
-    </script>
+    var callback = function () {
+      if (navigated) return;
+      navigated = true;
+      if (url) window.location.href = url;
+    };
+
+    try {
+      gtag('event', 'conversion', {
+        send_to: 'AW-17938724932/90NQCkn44vQbEMTw7OIC',
+        event_callback: callback
+      });
+
+      // fallback ONLY if callback never fires
+      setTimeout(callback, 800);
+    } catch (e) {
+      callback();
+    }
+
+    return false;
+  }
+</script>
 
     <!-- GOOGLE FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
