@@ -1,8 +1,25 @@
 import { Mail, Phone } from 'lucide-react';
 
+declare global {
+  interface Window {
+    gtag_report_conversion?: (url?: string) => boolean;
+  }
+}
+
 export default function Contact() {
   const emailUrl = 'mailto:info@zaliasgeneratorius.lt';
   const phoneUrl = 'tel:+37063796969';
+
+  const handleTrackedClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
+    e.preventDefault();
+
+    // If helper exists, use it. If not, still open mail/tel immediately.
+    if (typeof window.gtag_report_conversion === 'function') {
+      window.gtag_report_conversion(url);
+    } else {
+      window.location.href = url;
+    }
+  };
 
   return (
     <div className="py-16 bg-white dark:bg-gray-900 transition-colors">
@@ -27,10 +44,7 @@ export default function Contact() {
                   <a
                     href={emailUrl}
                     className="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 font-medium"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.gtag_report_conversion(emailUrl);
-                    }}
+                    onClick={(e) => handleTrackedClick(e, emailUrl)}
                   >
                     info@zaliasgeneratorius.lt
                   </a>
@@ -52,10 +66,7 @@ export default function Contact() {
                   <a
                     href={phoneUrl}
                     className="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 font-medium"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.gtag_report_conversion(phoneUrl);
-                    }}
+                    onClick={(e) => handleTrackedClick(e, phoneUrl)}
                   >
                     +370 637 96969
                   </a>
@@ -63,6 +74,8 @@ export default function Contact() {
               </div>
             </div>
           </div>
+
+          {/* Optional: add a real button CTA too if you want more conversions */}
         </div>
       </div>
     </div>
