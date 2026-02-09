@@ -2,148 +2,83 @@
 <html lang="lt">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Ads Global Site Tag -->
+    <title>Žalias Generatorius | Power Bankas | Nešiojama Baterija Renginiams</title>
+
+    <!-- FAVICONS -->
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="Mobilūs energijos kaupimo sprendimai laikinam elektros tiekimui. Įvado galios padidinimas, darbas be generatoriaus."
+    />
+    <link rel="canonical" href="https://zaliasgeneratorius.lt" />
+
+    <!-- GOOGLE ADS TAG -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17938724932"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'AW-17938724932');
+      gtag('config', 'AW-17938724932', { allow_enhanced_conversions: true });
     </script>
 
-    <!-- Google Ads Conversion Helper (fires ONLY when called from button/link click) -->
+    <!-- GOOGLE ADS CONVERSION HELPER (SAFE) -->
     <script>
-      // Usage from React onClick:
-      // e.preventDefault();
-      // window.gtag_report_conversion('tel:+3706XXXXXXX');
-      // or window.gtag_report_conversion('mailto:info@...');
       function gtag_report_conversion(url) {
+        var callback = function () {
+          if (url) window.location.href = url;
+        };
+
         try {
           gtag('event', 'conversion', {
-            'send_to': 'AW-17938724932/90NQCkn44vQbEMTw7OIC'
+            send_to: 'AW-17938724932/90NQCkn44vQbEMTw7OIC',
+            event_callback: callback
           });
+          setTimeout(callback, 800); // fallback
         } catch (e) {
-          // If gtag is blocked (adblock), still allow tel/mail to open
-        }
-
-        if (typeof url !== 'undefined') {
-          window.location.href = url;
+          callback();
         }
         return false;
       }
     </script>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-    <!-- Viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Google Font: Inter (Modern, Tech, Clean) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Title -->
-    <title>Žalias Generatorius | Power Bankas | Nešiojama Baterija Renginiams</title>
-
-    <!-- SEO Meta -->
-    <meta
-      name="description"
-      content="Mobilūs energijos kaupimo sprendimai laikinam elektros tiekimui. Įvado galios padidinimas, darbas be generatoriaus, suderinama su saulės elektrinėmis."
-    />
-    <meta
-      name="keywords"
-      content="power bankas, nešiojama baterija, generatorių nuoma, generatorius renginiams, renginių įranga, elektros įvado galios kėlimas, akumuliatoriai, generatorių nuoma Šiauliuose, statybų įranga, ekologiškas generatorius"
-    />
-
-    <!-- Open Graph -->
-    <meta
-      property="og:title"
-      content="Žalias generatorius – laikina elektra be generatorių"
-    />
-    <meta
-      property="og:description"
-      content="Mobilūs energijos kaupimo sprendimai laikinam elektros tiekimui. Įvado galios padidinimas, darbas be generatoriaus, suderinama su saulės elektrinėmis."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://zaliasgeneratorius.lt" />
-    <meta
-      property="og:image"
-      content="https://zaliasgeneratorius.lt/9546F775-108C-4B48-90B5-1BB5BD2EA1F2.png"
-    />
-
-    <!-- Canonical -->
-    <link rel="canonical" href="https://zaliasgeneratorius.lt" />
-
-    <!-- Global Font Style -->
+    <!-- GLOBAL STYLE -->
     <style>
       body {
         margin: 0;
         font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
-          'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue',
-          sans-serif;
+          'Segoe UI', Roboto, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
     </style>
 
-    <!-- Structured Data -->
+    <!-- STRUCTURED DATA -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Žalias Generatorius",
-        "description": "Generatorių nuoma renginiams ir statyboms. Power bankas su akumuliatoriais, elektros įvado galios kėlimas. Ekologiška alternatyva dyzeliniam ir elektros generatoriui.",
         "url": "https://zaliasgeneratorius.lt",
         "email": "info@zaliasgeneratorius.lt",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Šiauliai",
           "addressCountry": "LT"
-        },
-        "priceRange": "€60-€100",
-        "areaServed": {
-          "@type": "GeoCircle",
-          "geoMidpoint": {
-            "@type": "GeoCoordinates",
-            "latitude": "55.9349",
-            "longitude": "23.3138"
-          }
-        },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Generatorių nuomos paslaugos",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Power banko nuoma renginiams",
-                "description": "60 kWh power bankas su akumuliatoriais - ekologiška alternatyva dyzeliniam generatoriui"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Elektros įvado galios kėlimas",
-                "description": "Papildoma galia statyboms ir projektams"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Renginių įranga",
-                "description": "Tylus ir ekologiškas energijos šaltinis renginiams"
-              }
-            }
-          ]
         }
       }
     </script>
