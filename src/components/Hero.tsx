@@ -45,7 +45,7 @@ export default function Hero({ onNavigate }: HeroProps) {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <button
-                onClick={() => scrollToSection('pricing')}
+                onClick={() => scrollToSection('contact')}
                 className="px-8 py-4 bg-green-600 dark:bg-green-500 text-white rounded-lg font-semibold hover:bg-green-700 dark:hover:bg-green-600 transition-all transform hover:scale-102 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
                 aria-label="Susisiekti dėl nuomos"
               >
