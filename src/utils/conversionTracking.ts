@@ -12,7 +12,7 @@ interface ConversionData {
 }
 
 const CONVERSION_ID = 'AW-17938724932';
-const CONVERSION_LABEL = '90NQCkn44vQbEMTw7OIC';
+const CONVERSION_LABEL = '9QNQCKn44vQbEMTw7OlC';
 
 /**
  * Optional: console logging to help debugging
