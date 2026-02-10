@@ -28,31 +28,46 @@
       gtag('config', 'AW-17938724932', { allow_enhanced_conversions: true });
     </script>
 
-    <!-- GOOGLE ADS CONVERSION HELPER (SAFE) -->
+    <!-- GOOGLE ADS CONVERSION HELPER (ENHANCED) -->
     <script>
   function gtag_report_conversion(url) {
     var navigated = false;
+    console.log('[Google Ads Helper] gtag_report_conversion called with URL:', url);
 
     var callback = function () {
-      if (navigated) return;
+      if (navigated) {
+        console.log('[Google Ads Helper] Navigation already in progress');
+        return;
+      }
       navigated = true;
+      console.log('[Google Ads Helper] Callback triggered, navigating to:', url);
       if (url) window.location.href = url;
     };
 
     try {
+      console.log('[Google Ads Helper] Firing conversion event');
       gtag('event', 'conversion', {
         send_to: 'AW-17938724932/90NQCkn44vQbEMTw7OIC',
-        event_callback: callback
+        'value': 1.0,
+        'currency': 'EUR',
+        event_callback: callback,
+        event_timeout: 1500
       });
 
-      // fallback ONLY if callback never fires
-      setTimeout(callback, 800);
+      console.log('[Google Ads Helper] Event fired, waiting for callback...');
+      setTimeout(function() {
+        console.log('[Google Ads Helper] Fallback timeout reached');
+        callback();
+      }, 1500);
     } catch (e) {
+      console.error('[Google Ads Helper] Error:', e);
       callback();
     }
 
     return false;
   }
+
+  console.log('[Google Ads Helper] Script loaded and ready');
 </script>
 
     <!-- GOOGLE FONT -->

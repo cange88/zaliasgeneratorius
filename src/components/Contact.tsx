@@ -1,23 +1,30 @@
 import { Mail, Phone } from 'lucide-react';
-
-declare global {
-  interface Window {
-    gtag_report_conversion?: (url?: string) => boolean;
-  }
-}
+import { useState } from 'react';
+import ConversionModal from './ConversionModal';
+import { trackConversionWithDelay } from '../utils/conversionTracking';
 
 export default function Contact() {
   const emailUrl = 'mailto:info@zaliasgeneratorius.lt';
   const phoneUrl = 'tel:+37063796969';
+  const [showModal, setShowModal] = useState(false);
+  const [pendingUrl, setPendingUrl] = useState<string | null>(null);
+  const [contactType, setContactType] = useState<'email' | 'phone'>('email');
 
-  const handleTrackedClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
+  const handleTrackedClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string, type: 'email' | 'phone') => {
     e.preventDefault();
+    setPendingUrl(url);
+    setContactType(type);
+    setShowModal(true);
 
-    // If helper exists, use it. If not, still open mail/tel immediately.
-    if (typeof window.gtag_report_conversion === 'function') {
-      window.gtag_report_conversion(url);
-    } else {
-      window.location.href = url;
+    trackConversionWithDelay(type, url, () => {
+      console.log('[Contact] Conversion tracking complete, navigating to:', url);
+    });
+  };
+
+  const handleConfirm = () => {
+    setShowModal(false);
+    if (pendingUrl) {
+      window.location.href = pendingUrl;
     }
   };
 
@@ -44,7 +51,7 @@ export default function Contact() {
                   <a
                     href={emailUrl}
                     className="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 font-medium"
-                    onClick={(e) => handleTrackedClick(e, emailUrl)}
+                    onClick={(e) => handleTrackedClick(e, emailUrl, 'email')}
                   >
                     info@zaliasgeneratorius.lt
                   </a>
@@ -66,7 +73,7 @@ export default function Contact() {
                   <a
                     href={phoneUrl}
                     className="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 font-medium"
-                    onClick={(e) => handleTrackedClick(e, phoneUrl)}
+                    onClick={(e) => handleTrackedClick(e, phoneUrl, 'phone')}
                   >
                     +370 637 96969
                   </a>
@@ -78,6 +85,12 @@ export default function Contact() {
           {/* Optional: add a real button CTA too if you want more conversions */}
         </div>
       </div>
+
+      <ConversionModal
+        isOpen={showModal}
+        onConfirm={handleConfirm}
+        contactType={contactType}
+      />
     </div>
   );
 }
