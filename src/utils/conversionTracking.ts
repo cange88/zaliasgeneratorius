@@ -1,84 +1,110 @@
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-    gtag_report_conversion?: (url?: string) => boolean;
-  }
+import React, { useEffect, useState } from 'react';
+import { CheckCircle, X } from 'lucide-react';
+
+interface ConversionModalProps {
+  isOpen: boolean;
+  onConfirm: () => void;   // open mail/tel
+  onClose: () => void;     // just close modal
+  contactType: 'email' | 'phone';
 }
 
-interface ConversionData {
-  type: 'email' | 'phone';
-  timestamp: number;
-  url: string;
-}
+export default function ConversionModal({ isOpen, onConfirm, onClose, contactType }: ConversionModalProps) {
+  const [isClosing, setIsClosing] = useState(false);
 
-const CONVERSION_ID = 'AW-17938724932';
-const CONVERSION_LABEL = '90NQCkn44vQbEMTw7OIC';
+  useEffect(() => {
+    if (!isOpen) return;
 
-export function logConversionEvent(data: ConversionData) {
-  console.log('[Google Ads Tracking] Conversion event:', {
-    type: data.type,
-    timestamp: new Date(data.timestamp).toISOString(),
-    url: data.url,
-  });
+    document.body.style.overflow = 'hidden';
 
-  if (typeof window.gtag === 'function') {
-    try {
-      window.gtag('event', 'conversion', {
-        send_to: `${CONVERSION_ID}/${CONVERSION_LABEL}`,
-        'value': 1.0,
-        'currency': 'EUR',
-        'transaction_id': `conversion_${data.timestamp}`,
-      });
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') handleClose();
+    };
 
-      console.log('[Google Ads Tracking] Primary conversion event fired successfully');
-    } catch (error) {
-      console.error('[Google Ads Tracking] Error firing primary conversion:', error);
-    }
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = 'auto';
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
 
-    try {
-      window.gtag('event', 'contact_initiated', {
-        'contact_type': data.type,
-        'timestamp': data.timestamp,
-      });
-
-      console.log('[Google Ads Tracking] Backup event (contact_initiated) fired');
-    } catch (error) {
-      console.error('[Google Ads Tracking] Error firing backup event:', error);
-    }
-  } else {
-    console.warn('[Google Ads Tracking] gtag function not available');
-  }
-}
-
-export function trackConversionWithDelay(
-  contactType: 'email' | 'phone',
-  url: string,
-  onComplete: () => void
-): void {
-  const data: ConversionData = {
-    type: contactType,
-    timestamp: Date.now(),
-    url,
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsClosing(false);
+      onClose();
+    }, 200);
   };
 
-  logConversionEvent(data);
+  const handleConfirm = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsClosing(false);
+      onConfirm();
+    }, 200);
+  };
 
-  const timeout = setTimeout(() => {
-    console.log('[Google Ads Tracking] Timeout reached, proceeding with URL navigation');
-    onComplete();
-  }, 1500);
+  if (!isOpen) return null;
 
-  if (typeof window.gtag_report_conversion === 'function') {
-    try {
-      console.log('[Google Ads Tracking] Using gtag_report_conversion helper');
-      window.gtag_report_conversion(url);
-      clearTimeout(timeout);
-    } catch (error) {
-      console.error('[Google Ads Tracking] Error in gtag_report_conversion:', error);
-      clearTimeout(timeout);
-      onComplete();
-    }
-  } else {
-    console.warn('[Google Ads Tracking] gtag_report_conversion helper not available');
-  }
+  return (
+    <div
+      className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-200 ${
+        isClosing ? 'opacity-0' : 'opacity-100'
+      }`}
+      style={{ backgroundColor: isClosing ? 'rgba(0,0,0,0)' : 'rgba(0,0,0,0.5)' }}
+      onMouseDown={handleClose} // click outside closes
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        className={`bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full mx-4 transition-all duration-200 transform ${
+          isClosing ? 'scale-95 opacity-0' : 'scale-100 opacity-100'
+        }`}
+        onMouseDown={(e) => e.stopPropagation()} // prevent outside click
+      >
+        <div className="p-8 text-center relative">
+          <button
+            onClick={handleClose}
+            className="absolute top-4 right-4 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+            aria-label="Uždaryti"
+            type="button"
+          >
+            <X className="w-5 h-5 text-gray-500" />
+          </button>
+
+          <div className="flex justify-center mb-4">
+            <CheckCircle className="w-16 h-16 text-green-600 dark:text-green-400" />
+          </div>
+
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+            Dėkojame!
+          </h2>
+
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
+            Greitai atidarysite susisiekimo programą.
+          </p>
+
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+            Kontaktas: {contactType === 'email' ? 'info@zaliasgeneratorius.lt' : '+370 637 96969'}
+          </p>
+
+          <button
+            onClick={handleConfirm}
+            className="w-full bg-green-600 dark:bg-green-500 hover:bg-green-700 dark:hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+            type="button"
+          >
+            Atidaryti
+          </button>
+
+          <button
+            onClick={handleClose}
+            className="mt-4 text-xs text-gray-500 hover:underline"
+            type="button"
+          >
+            Arba tiesiog uždarykite šį langą
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
