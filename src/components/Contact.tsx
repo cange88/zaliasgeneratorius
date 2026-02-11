@@ -1,21 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Mail, Phone } from 'lucide-react';
-import ConversionModal from './ConversionModal';
 import { trackConversion } from '../utils/conversionTracking';
-
-declare global {
-  interface Window {
-    gtag_report_conversion?: (url?: string) => boolean;
-  }
-}
 
 export default function Contact() {
   const emailUrl = 'mailto:info@zaliasgeneratorius.lt';
   const phoneUrl = 'tel:+37063796969';
-
-  const [showModal, setShowModal] = useState(false);
-  const [pendingUrl, setPendingUrl] = useState<string | null>(null);
-  const [contactType, setContactType] = useState<'email' | 'phone'>('email');
 
   const handleTrackedClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -23,31 +12,7 @@ export default function Contact() {
     type: 'email' | 'phone'
   ) => {
     e.preventDefault();
-
-    // Open modal first (no navigation yet)
-    setPendingUrl(url);
-    setContactType(type);
-    setShowModal(true);
-
-    // Fire conversion now (does NOT navigate)
-    trackConversion(type);
-  };
-
-  const handleConfirm = () => {
-    setShowModal(false);
-
-    // Navigate ONLY once, only after user confirms.
-    if (pendingUrl) {
-      window.location.href = pendingUrl;
-    }
-
-    // cleanup
-    setPendingUrl(null);
-  };
-
-  const handleClose = () => {
-    setShowModal(false);
-    setPendingUrl(null);
+    trackConversion(type, url);
   };
 
   return (
@@ -105,13 +70,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-
-      <ConversionModal
-        isOpen={showModal}
-        onConfirm={handleConfirm}
-        onClose={handleClose}
-        contactType={contactType}
-      />
     </div>
   );
 }
