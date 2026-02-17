@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import UseCases from './components/UseCases';
@@ -9,6 +9,29 @@ import Navigation from './components/Navigation';
 
 function App() {
   const [currentSection, setCurrentSection] = useState('home');
+
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (!hash) return;
+
+      const el = document.querySelector(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    // Kai puslapis užsikrauna, React jau bus sugeneravęs DOM (su mažyte pauze)
+    const t = window.setTimeout(scrollToHash, 100);
+
+    // Jei hash pasikeičia jau puslapyje (pvz. paspaudus sitelink)
+    window.addEventListener('hashchange', scrollToHash);
+
+    return () => {
+      window.clearTimeout(t);
+      window.removeEventListener('hashchange', scrollToHash);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
